@@ -14,6 +14,14 @@ Sampler "halton" "integer pixelsamples" [8]
 
 Integrator "path"
 
+#Accelerator "bvh"
+Accelerator "bvhstochsubset"
+"integer subsetsizemin" 100
+"integer subsetsizemax" 200
+"float subsetsizefrac" 0.1
+
+"string cdfkind" "diagonal"
+
 WorldBegin
 
 AttributeBegin

@@ -68,6 +68,9 @@ Reformatting options:
   --toply              Print a reformatted version of the input file(s) to
                        standard output and convert all triangle meshes to
                        PLY files. Does not render an image.
+
+Custom options:
+  --vis                Launch BVH visualization instead of rendering image
 )");
     exit(msg ? 1 : 0);
 }

@@ -93,7 +93,7 @@ class Triangle : public Shape {
     // reference point p.
     Float SolidAngle(const Point3f &p, int nSamples = 0) const;
 
-  private:
+  public:
     // Triangle Private Methods
     void GetUVs(Point2f uv[3]) const {
         if (mesh->uv) {

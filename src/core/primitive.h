@@ -74,6 +74,7 @@ class GeometricPrimitive : public Primitive {
                        const std::shared_ptr<Material> &material,
                        const std::shared_ptr<AreaLight> &areaLight,
                        const MediumInterface &mediumInterface);
+    const Shape *GetShape() const { return shape.get(); };
     const AreaLight *GetAreaLight() const;
     const Material *GetMaterial() const;
     void ComputeScatteringFunctions(SurfaceInteraction *isect,

@@ -1,3 +1,8 @@
+Stochastic Subset BVHs
+======================
+
+This repository contains the CPU-based implementation of Stochastic Subset BVHs in pbrt v3 (see below). The entire implementation can be found in the files [src/accelerators/bvhstochsubset.h](src/accelerators/bvhstochsubset.h) and [src/accelerators/bvhstochsubset.cpp](src/accelerators/bvhstochsubset.cpp)
+
 pbrt, Version 3
 ===============
 

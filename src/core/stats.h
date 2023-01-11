@@ -142,6 +142,11 @@ class StatsAccumulator {
 enum class Prof {
     SceneConstruction,
     AccelConstruction,
+    AccelMortonSort,
+    AccelSubsetCreation,
+    AccelSubsetRecursiveBuild,
+    AccelFindBestNode,
+    AccelRecursiveBuild,
     TextureLoading,
     MIPMapCreation,
 
@@ -197,6 +202,11 @@ inline uint64_t ProfToBits(Prof p) { return 1ull << (int)p; }
 static const char *ProfNames[] = {
     "Scene parsing and creation",
     "Acceleration structure creation",
+    "Acceleration structure morton sort",
+    "Acceleration structure subset creation",
+    "Acceleration structure subset recursive build",
+    "Acceleration structure find best node",
+    "Acceleration structure recursive build",
     "Texture loading",
     "MIP map generation",
 

@@ -370,6 +370,7 @@ SET ( PBRT_CORE_SOURCE
   src/core/api.cpp
   src/core/bssrdf.cpp
   src/core/camera.cpp
+  src/core/counters.cpp
   src/core/efloat.cpp
   src/core/error.cpp
   src/core/fileutil.cpp
@@ -410,6 +411,7 @@ SET ( PBRT_CORE_HEADERS
   src/core/api.h
   src/core/bssrdf.h
   src/core/camera.h
+  src/core/counters.h
   src/core/efloat.h
   src/core/error.h
   src/core/fileutil.h

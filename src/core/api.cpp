@@ -42,6 +42,7 @@
 
 // API Additional Headers
 #include "accelerators/bvh.h"
+#include "accelerators/bvhstochsubset.h"
 #include "accelerators/kdtreeaccel.h"
 #include "cameras/environment.h"
 #include "cameras/orthographic.h"
@@ -56,6 +57,9 @@
 #include "integrators/directlighting.h"
 #include "integrators/mlt.h"
 #include "integrators/ao.h"
+#include "integrators/ao2.h"
+#include "integrators/primary.h"
+#include "integrators/stat.h"
 #include "integrators/path.h"
 #include "integrators/sppm.h"
 #include "integrators/volpath.h"
@@ -774,6 +778,8 @@ std::shared_ptr<Primitive> MakeAccelerator(
     std::shared_ptr<Primitive> accel;
     if (name == "bvh")
         accel = CreateBVHAccelerator(std::move(prims), paramSet);
+    else if (name == "bvhstochsubset")
+        accel = CreateBVHStochSubsetAccelerator(std::move(prims), paramSet);
     else if (name == "kdtree")
         accel = CreateKdTreeAccelerator(std::move(prims), paramSet);
     else
@@ -1687,8 +1693,14 @@ Integrator *RenderOptions::MakeIntegrator() const {
         integrator = CreateBDPTIntegrator(IntegratorParams, sampler, camera);
     } else if (IntegratorName == "mlt") {
         integrator = CreateMLTIntegrator(IntegratorParams, camera);
+    } else if (IntegratorName == "primary") {
+        integrator = CreatePrimaryIntegrator(IntegratorParams, sampler, camera);
+    } else if (IntegratorName == "stat") {
+        integrator = CreateStatIntegrator(IntegratorParams, sampler, camera);
     } else if (IntegratorName == "ambientocclusion") {
         integrator = CreateAOIntegrator(IntegratorParams, sampler, camera);
+    } else if (IntegratorName == "ambientocclusion2") {
+        integrator = CreateAO2Integrator(IntegratorParams, sampler, camera);
     } else if (IntegratorName == "sppm") {
         integrator = CreateSPPMIntegrator(IntegratorParams, camera);
     } else {
